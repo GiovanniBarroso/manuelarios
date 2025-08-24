@@ -76,7 +76,7 @@ nav ul li a:hover {
 }
 
 nav ul li a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -139,14 +139,22 @@ nav ul li a:hover::after {
 
 /* HERO */
 .parallax {
-  background: linear-gradient(rgba(44, 44, 44, 0.6), rgba(44, 44, 44, 0.6)),
-              url("../img/hero-bg.jpg") center/cover;
+  background: linear-gradient(rgba(44, 44, 44, 0.6), rgba(44, 44, 44, 0.6));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
+}
+.parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(44, 44, 44, 0.6), rgba(44, 44, 44, 0.6));
 }
 
 .hero-text {
@@ -204,7 +212,7 @@ h2 {
 }
 
 h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -245,13 +253,13 @@ h2::after {
 }
 
 .gallery-item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3));
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -325,7 +333,7 @@ h2::after {
 }
 
 .service::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -391,7 +399,7 @@ h2::after {
 }
 
 .service.expanded .service-details {
-  max-height: 300px;
+  max-height: 500px;
 }
 
 .service-details-content {
@@ -424,7 +432,7 @@ h2::after {
 }
 
 .process-steps li::before {
-  content: '✓';
+  content: "✓";
   position: absolute;
   left: 0;
   color: var(--primary);
@@ -556,7 +564,7 @@ footer {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   align-items: center;
   justify-content: center;
 }
@@ -598,13 +606,19 @@ footer {
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 .whatsapp::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   left: -5px;

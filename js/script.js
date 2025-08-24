@@ -51,13 +51,19 @@ function toggleService(serviceElement) {
     console.error("Invalid service element");
     return;
   }
-  
+
   const isCurrentlyExpanded = serviceElement.classList.contains("expanded");
-  
+
   // Debug: mostrar qué servicio se está clickeando
-  const serviceName = serviceElement.querySelector("h3")?.textContent || "Unknown";
-  console.log("Clicking service:", serviceName, "Currently expanded:", isCurrentlyExpanded);
-  
+  const serviceName =
+    serviceElement.querySelector("h3")?.textContent || "Unknown";
+  console.log(
+    "Clicking service:",
+    serviceName,
+    "Currently expanded:",
+    isCurrentlyExpanded
+  );
+
   // PRIMERO: Cerrar TODOS los servicios
   const allServices = document.querySelectorAll(".service");
   allServices.forEach((service) => {
@@ -66,33 +72,33 @@ function toggleService(serviceElement) {
       service.classList.remove("expanded");
     }
   });
-  
+
   // SEGUNDO: Solo expandir el clickeado si no estaba expandido
   if (!isCurrentlyExpanded) {
     console.log("Expanding service:", serviceName);
     serviceElement.classList.add("expanded");
-    
+
     // Scroll suave hacia el elemento en dispositivos grandes
     if (window.innerWidth > 768) {
       setTimeout(() => {
         serviceElement.scrollIntoView({
           behavior: "smooth",
           block: "center",
-          inline: "nearest"
+          inline: "nearest",
         });
       }, 300);
     }
-    
+
     // Track del evento
     trackServiceExpansion(serviceName);
   }
 }
 
 // FUNCIÓN ALTERNATIVA CON EVENT DELEGATION (más robusta)
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Event delegation para evitar conflictos con múltiples listeners
   const servicesSection = document.getElementById("services");
-  
+
   if (servicesSection) {
     // Remover cualquier listener previo para evitar duplicados
     servicesSection.removeEventListener("click", handleServiceClick);
@@ -103,33 +109,34 @@ document.addEventListener("DOMContentLoaded", function() {
 function handleServiceClick(event) {
   // Buscar el elemento .service más cercano
   const serviceCard = event.target.closest(".service");
-  
+
   if (serviceCard && !event.target.closest(".service-details")) {
     // Prevenir que se ejecute el onclick del HTML también
     event.preventDefault();
     event.stopPropagation();
-    
+
     const isCurrentlyExpanded = serviceCard.classList.contains("expanded");
-    const serviceName = serviceCard.querySelector("h3")?.textContent || "Unknown";
-    
+    const serviceName =
+      serviceCard.querySelector("h3")?.textContent || "Unknown";
+
     console.log("Event delegation - Clicking service:", serviceName);
-    
+
     // Cerrar todas las tarjetas
     document.querySelectorAll(".service.expanded").forEach((service) => {
       service.classList.remove("expanded");
     });
-    
+
     // Expandir solo la clickeada si no estaba expandida
     if (!isCurrentlyExpanded) {
       serviceCard.classList.add("expanded");
       trackServiceExpansion(serviceName);
-      
+
       // Scroll suave en dispositivos grandes
       if (window.innerWidth > 768) {
         setTimeout(() => {
           serviceCard.scrollIntoView({
             behavior: "smooth",
-            block: "center"
+            block: "center",
           });
         }, 300);
       }
@@ -212,7 +219,7 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 function trackServiceExpansion(serviceName) {
   // Aquí se podría implementar tracking con Google Analytics
   console.log("Service expanded:", serviceName);
-  
+
   // Ejemplo de tracking con Google Analytics (descomenta si usas GA4)
   // if (typeof gtag !== 'undefined') {
   //   gtag('event', 'service_expand', {
@@ -291,7 +298,8 @@ function debugServices() {
   console.log("=== DEBUG SERVICES ===");
   const services = document.querySelectorAll(".service");
   services.forEach((service, index) => {
-    const title = service.querySelector("h3")?.textContent || `Service ${index}`;
+    const title =
+      service.querySelector("h3")?.textContent || `Service ${index}`;
     const isExpanded = service.classList.contains("expanded");
     console.log(`${title}: ${isExpanded ? "EXPANDED" : "collapsed"}`);
   });
@@ -313,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resetServices();
     console.log("Services initialized - all collapsed");
   }, 100);
-  
+
   // Debug: mostrar cuántos servicios se encontraron
   const serviceCount = document.querySelectorAll(".service").length;
   console.log(`Found ${serviceCount} service cards`);
@@ -321,13 +329,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Manejo de resize para recalcular alturas expandidas
 let resizeTimeout;
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
     // Recalcular cualquier servicio expandido después del resize
     const expandedServices = document.querySelectorAll(".service.expanded");
     if (expandedServices.length > 0) {
-      console.log(`Recalculating ${expandedServices.length} expanded services after resize`);
+      console.log(
+        `Recalculating ${expandedServices.length} expanded services after resize`
+      );
     }
   }, 250);
 });
