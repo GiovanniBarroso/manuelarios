@@ -1,3 +1,10 @@
+/* --- Defensa anti-scroll horizontal global --- */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* --- Colores --- */
 :root {
   --primary: #d4af37;
   --primary-dark: #b8941f;
@@ -11,6 +18,7 @@
   --gradient-dark: linear-gradient(135deg, #2c2c2c, #34495e);
 }
 
+/* --- Reset básico --- */
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +33,7 @@ body {
   background-color: var(--light);
 }
 
-/* NAVBAR */
+/* --- NAVBAR --- */
 nav {
   position: fixed;
   top: 0;
@@ -59,8 +67,6 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 25px;
-  margin: 0;
-  padding: 0;
 }
 
 nav ul li a {
@@ -91,7 +97,7 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-/* Menú móvil */
+/* --- Menú móvil --- */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -137,7 +143,7 @@ nav ul li a:hover::after {
   }
 }
 
-/* HERO */
+/* --- HERO --- */
 .parallax {
   background: linear-gradient(rgba(44, 44, 44, 0.6), rgba(44, 44, 44, 0.6));
   background-size: cover;
@@ -195,7 +201,7 @@ nav ul li a:hover::after {
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
 }
 
-/* SECCIONES */
+/* --- SECCIONES --- */
 section {
   padding: 100px 20px;
   max-width: 1200px;
@@ -222,7 +228,7 @@ h2::after {
   transform: translateX(-50%);
 }
 
-/* GALERÍA PARALLAX MEJORADA */
+/* --- GALERÍA PARALLAX --- */
 .gallery-section {
   padding: 0;
   margin: 0;
@@ -230,35 +236,40 @@ h2::after {
 }
 
 .gallery-parallax {
-  height: 70vh;
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  gap: 10px;
+  padding: 10px;
   scroll-snap-type: x mandatory;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gallery-item {
   min-width: 320px;
   height: 450px;
-  border-radius: 20px;
+  border-radius: 15px;
   background-size: cover;
   background-position: center;
   scroll-snap-align: center;
-  transition: all 0.4s ease;
   box-shadow: 0 15px 40px var(--shadow);
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-parallax .gallery-item:first-child {
+  margin-left: 120px;
+}
+.gallery-parallax .gallery-item:last-child {
+  margin-right: 120px;
 }
 
 .gallery-item::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3));
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -269,11 +280,16 @@ h2::after {
 }
 
 .gallery-item:hover {
-  transform: scale(1.05) rotateY(5deg);
   box-shadow: 0 25px 60px var(--shadow-hover);
 }
 
-/* SOBRE NOSOTROS */
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item:hover {
+    transform: scale(1.2) rotateY(5deg);
+  }
+}
+
+/* --- ABOUT US --- */
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -296,15 +312,11 @@ h2::after {
 
 .about-image {
   width: 100%;
-  height: 400px;
+  height: 500px;
   border-radius: 20px;
-  background: url("../img/about-image.jpg") center/cover;
+  background: url("../img/gallery/manuela2.jpg") center/cover;
   box-shadow: 0 15px 40px var(--shadow);
   transition: transform 0.3s ease;
-}
-
-.about-image:hover {
-  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -314,7 +326,7 @@ h2::after {
   }
 }
 
-/* SERVICIOS EXPANDIBLES MEJORADOS */
+/* --- SERVICIOS --- */
 .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -356,7 +368,6 @@ h2::after {
 .service-header {
   padding: 40px 30px 30px;
   text-align: center;
-  position: relative;
   background: linear-gradient(135deg, #f8f9fa, #ffffff);
 }
 
@@ -468,7 +479,7 @@ h2::after {
   transform: rotate(180deg);
 }
 
-/* UBICACIÓN */
+/* --- UBICACIÓN --- */
 .location-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -538,7 +549,7 @@ h2::after {
   }
 }
 
-/* FOOTER */
+/* --- FOOTER --- */
 footer {
   background: var(--gradient-dark);
   color: var(--light);
@@ -580,7 +591,7 @@ footer {
   color: #ccc;
 }
 
-/* WHATSAPP MEJORADO */
+/* --- WHATSAPP --- */
 .whatsapp {
   position: fixed;
   bottom: 30px;
@@ -628,7 +639,7 @@ footer {
   animation: pulse 2s infinite;
 }
 
-/* RESPONSIVE */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   nav {
     padding: 1rem;
@@ -656,14 +667,13 @@ footer {
   }
 }
 
-/* Scroll suave en galería */
-.gallery-parallax::-webkit-scrollbar {
-  height: 10px;
+/* --- Scroll en galería --- */
+.gallery-parallax {
+  -webkit-overflow-scrolling: touch;
 }
 
-.gallery-parallax::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
+.gallery-parallax::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery-parallax::-webkit-scrollbar-thumb {
@@ -675,14 +685,16 @@ footer {
   background: var(--primary-dark);
 }
 
-/* Animación de carga */
+/* --- ANIMACIONES --- */
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
