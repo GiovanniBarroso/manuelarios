@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
 
       # 3. Instalar dependencias
       - name: Install dependencies
@@ -37,7 +37,7 @@ jobs:
           pnpm run lint:html
           pnpm run lint:css
           pnpm run lint:js
-          pnpm run lint:lighthouse
+          pnpm run lint:links
 
       # 5. Deploy a GitHub Pages (si todo pasa)
       - name: Deploy to GitHub Pages
