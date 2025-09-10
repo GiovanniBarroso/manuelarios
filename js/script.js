@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document
     .querySelectorAll(
-      "img[data-src], .about-image[data-bg], .gallery-item[data-bg]"
+      "img[data-src], .about-image[data-bg], .gallery-item[data-bg]",
     )
     .forEach((el) => lazyObserver.observe(el));
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const itemCenterX = rect.left + rect.width / 2;
         const distance = Math.min(
           Math.abs(centerX - itemCenterX),
-          galleryRect.width / 2
+          galleryRect.width / 2,
         );
 
         const scale = 1 - (distance / (galleryRect.width / 2)) * 0.15; // mínimo 0.85
@@ -126,7 +126,7 @@ window.addEventListener(
   debounce(() => {
     if (window.scrollY > 50) navbar.classList.add("scrolled");
     else navbar.classList.remove("scrolled");
-  }, 10)
+  }, 10),
 );
 
 // --- Mobile menu toggle ---
