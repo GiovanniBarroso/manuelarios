@@ -112,7 +112,7 @@ nav ul li a:hover::after {
   transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .menu-toggle {
     display: flex;
   }
@@ -236,8 +236,7 @@ h2::after {
 }
 
 .gallery-parallax {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   display: flex;
   gap: 10px;
   padding: 10px;
@@ -322,7 +321,7 @@ h2::after {
   transition: transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .about-content {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -371,7 +370,7 @@ h2::after {
 .service-header {
   padding: 40px 30px 30px;
   text-align: center;
-  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  background: linear-gradient(135deg, #f8f9fa, #fff);
 }
 
 .service-icon {
@@ -537,7 +536,7 @@ h2::after {
   transform: scale(1.02);
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .location-info {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -634,16 +633,13 @@ footer {
 .whatsapp::before {
   content: "";
   position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
+  inset: -5px;
   border-radius: 50%;
   animation: pulse 2s infinite;
 }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   nav {
     padding: 1rem;
   }
