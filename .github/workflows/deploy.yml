@@ -9,11 +9,14 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 1. Instalar pnpm antes de usarlo
+      # 1. Instalar pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
@@ -34,9 +37,12 @@ jobs:
       - name: Run linters
         run: pnpm run lint
 
-      # 5. Deploy a GitHub Pages (si todo pasa)
+      # 5. Deploy a GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
+          publish_branch: gh-pages   
+          force_orphan: true         
+          exclude_assets: '.github'  
