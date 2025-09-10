@@ -1,5 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo "🚀 Ejecutando pre-push: validación completa..."
 pnpm run lint

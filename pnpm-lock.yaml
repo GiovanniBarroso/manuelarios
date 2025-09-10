@@ -12,10 +12,10 @@ importers:
         specifier: ^0.7.8
         version: 0.7.8
       eslint:
-        specifier: ^9.9.0
+        specifier: ^9.35.0
         version: 9.35.0
       htmlhint:
-        specifier: ^1.1.4
+        specifier: ^1.6.3
         version: 1.6.3
       husky:
         specifier: ^9.1.7
@@ -24,13 +24,13 @@ importers:
         specifier: ^16.1.6
         version: 16.1.6
       prettier:
-        specifier: ^3.3.3
+        specifier: ^3.6.2
         version: 3.6.2
       serve:
         specifier: ^14.2.5
         version: 14.2.5
       stylelint:
-        specifier: ^16.9.0
+        specifier: ^16.24.0
         version: 16.24.0
       stylelint-config-standard:
         specifier: ^39.0.0
@@ -1896,7 +1896,7 @@ snapshots:
     dependencies:
       ansi-align: 3.0.1
       camelcase: 7.0.1
-      chalk: 5.6.2
+      chalk: 5.0.1
       cli-boxes: 3.0.0
       string-width: 5.1.2
       type-fest: 2.19.0
