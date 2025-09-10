@@ -4,12 +4,12 @@
   "description": "Landing page de Manuela Rios Micropigmentación",
   "scripts": {
     "prepare": "husky install",
-    "format": "prettier --write \"**/*.{html,css,js}\"",
-    "lint:format": "prettier --check \"**/*.{html,css,js}\"",
-    "lint:html": "htmlhint \"**/*.html\"",
-    "lint:css": "stylelint \"**/*.css\"",
-    "lint:js": "eslint js/*.js",
-    "lint:links": "serve . -l 8080 & blc http://127.0.0.1:8080 --recursive --filter-level 3 --exit",
+    "format": "prettier --write \"public/**/*.{html,css,js}\"",
+    "lint:format": "prettier --check \"public/**/*.{html,css,js}\"",
+    "lint:html": "htmlhint \"public/**/*.html\"",
+    "lint:css": "stylelint \"public/**/*.css\"",
+    "lint:js": "eslint public/js/*.js",
+    "lint:links": "serve public -l 8080 & blc http://127.0.0.1:8080 --recursive --filter-level 3 --exit",
     "lint": "pnpm run lint:format && pnpm run lint:html && pnpm run lint:css && pnpm run lint:js"
   },
   "devDependencies": {
@@ -24,15 +24,15 @@
     "stylelint-config-standard": "^39.0.0"
   },
   "lint-staged": {
-    "*.html": [
+    "public/**/*.html": [
       "prettier --write",
       "htmlhint"
     ],
-    "*.css": [
+    "public/**/*.css": [
       "prettier --write",
       "stylelint --fix"
     ],
-    "*.js": [
+    "public/**/*.js": [
       "prettier --write",
       "eslint --fix"
     ]
