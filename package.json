@@ -1,0 +1,23 @@
+{
+  "name": "manuelarios-landing",
+  "version": "1.0.0",
+  "description": "Landing page de Manuela Rios Micropigmentación",
+  "scripts": {
+    "format": "prettier --write \"**/*.{html,css,js}\"",
+    "lint:format": "prettier --check \"**/*.{html,css,js}\"",
+    "lint:html": "htmlhint \"**/*.html\"",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:js": "eslint js/*.js",
+    "lint:links": "blc http://127.0.0.1:8080 --recursive --filter-level 3 --exit",
+    "lint:lighthouse": "lhci autorun",
+    "lint": "pnpm run lint:format && pnpm run lint:html && pnpm run lint:css && pnpm run lint:js && pnpm run lint:lighthouse"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "broken-link-checker": "^0.7.8",
+    "eslint": "^9.9.0",
+    "htmlhint": "^1.1.4",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.9.0"
+  }
+}

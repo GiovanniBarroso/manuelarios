@@ -1,0 +1,35 @@
+# Dependencias
+node_modules/
+
+# Locks de otros package managers
+package-lock.json
+yarn.lock
+
+# Archivos de entorno (si los usas en el futuro)
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# SO / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Salidas de CI/CD o builds temporales (por si luego agregas un build system)
+dist/
+build/
+.cache/
+.lighthouseci/
+
+# GitHub Pages (branch gh-pages se gestiona solo en remoto)
+gh-pages/
+
+# Otros temporales
+*.tmp
