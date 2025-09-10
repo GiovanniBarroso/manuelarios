@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🚦 Ejecutando pre-commit: lint-staged en archivos modificados..."
+pnpm lint-staged

@@ -256,7 +256,10 @@ h2::after {
   box-shadow: 0 15px 40px var(--shadow);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .gallery-parallax .gallery-item:first-child {
