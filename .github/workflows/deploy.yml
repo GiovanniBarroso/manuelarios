@@ -13,20 +13,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "pnpm"
-
+      # 1. Instalar pnpm antes de usarlo
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
 
+      # 2. Configurar Node con cache optimizado para pnpm
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      # 3. Instalar dependencias
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # 4. Ejecutar linters y validaciones
       - name: Run linters
         run: |
           pnpm run lint:format
@@ -35,6 +39,7 @@ jobs:
           pnpm run lint:js
           pnpm run lint:lighthouse
 
+      # 5. Deploy a GitHub Pages (si todo pasa)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
