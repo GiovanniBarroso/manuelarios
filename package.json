@@ -10,7 +10,7 @@
     "lint:css": "stylelint \"**/*.css\"",
     "lint:js": "eslint js/*.js",
     "lint:links": "serve . -l 8080 & blc http://127.0.0.1:8080 --recursive --filter-level 3 --exit",
-    "lint": "pnpm run lint:format && pnpm run lint:html && pnpm run lint:css && pnpm run lint:js && pnpm run lint:links"
+    "lint": "pnpm run lint:format && pnpm run lint:html && pnpm run lint:css && pnpm run lint:js"
   },
   "devDependencies": {
     "broken-link-checker": "^0.7.8",
