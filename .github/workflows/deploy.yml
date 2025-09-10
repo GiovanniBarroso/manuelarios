@@ -42,7 +42,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages   
-          force_orphan: true         
-          exclude_assets: '.github'  
+          publish_dir: ./public    # 👈 ahora apunta a public/
+          publish_branch: gh-pages
+          force_orphan: true
