@@ -7,12 +7,12 @@ export default [
       sourceType: "module",
       globals: {
         window: "readonly",
-        document: "readonly"
-      }
+        document: "readonly",
+      },
     },
     rules: {
       "no-unused-vars": "warn",
-      "no-console": "off"
-    }
-  }
+      "no-console": "off",
+    },
+  },
 ];
