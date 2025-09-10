@@ -9,17 +9,17 @@
     "lint:html": "htmlhint \"**/*.html\"",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:js": "eslint js/*.js",
-    "lint:links": "blc http://127.0.0.1:8080 --recursive --filter-level 3 --exit",
+    "lint:links": "serve . -l 8080 & blc http://127.0.0.1:8080 --recursive --filter-level 3 --exit",
     "lint": "pnpm run lint:format && pnpm run lint:html && pnpm run lint:css && pnpm run lint:js && pnpm run lint:links"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.14.0",
     "broken-link-checker": "^0.7.8",
     "eslint": "^9.9.0",
     "htmlhint": "^1.1.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6",
     "prettier": "^3.3.3",
+    "serve": "^14.2.5",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^39.0.0"
   },

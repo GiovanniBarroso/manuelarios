@@ -32,12 +32,7 @@ jobs:
 
       # 4. Ejecutar linters y validaciones
       - name: Run linters
-        run: |
-          pnpm run lint:format
-          pnpm run lint:html
-          pnpm run lint:css
-          pnpm run lint:js
-          pnpm run lint:links
+        run: pnpm run lint
 
       # 5. Deploy a GitHub Pages (si todo pasa)
       - name: Deploy to GitHub Pages
