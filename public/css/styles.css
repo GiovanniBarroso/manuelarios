@@ -246,8 +246,8 @@ h2::after {
 }
 
 .gallery-item {
-  min-width: 320px;
-  height: 450px;
+  min-width: 400px;
+  height: 350px;
   border-radius: 15px;
   background-size: cover;
   background-position: center;
@@ -649,7 +649,7 @@ footer {
   }
 
   .gallery-item {
-    min-width: 280px;
+    min-width: 450px;
     height: 350px;
   }
 
