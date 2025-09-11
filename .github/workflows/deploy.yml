@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ master ] # 👈 tu rama principal es master, no main
+    branches: [master] # 👈 tu rama principal es master, no main
 
 permissions:
   contents: read

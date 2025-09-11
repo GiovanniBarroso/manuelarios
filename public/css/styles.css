@@ -649,8 +649,10 @@ footer {
   }
 
   .gallery-item {
-    min-width: 420px;
-    height: 350px;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
   }
 
   .whatsapp {
