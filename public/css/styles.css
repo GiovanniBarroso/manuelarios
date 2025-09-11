@@ -246,8 +246,9 @@ h2::after {
 }
 
 .gallery-item {
-  min-width: 400px;
-  height: 350px;
+  flex: 0 0 auto;
+  width: clamp(210px, 68vw, 380px);
+  aspect-ratio: 1 / 1;
   border-radius: 15px;
   background-size: cover;
   background-position: center;
@@ -649,10 +650,7 @@ footer {
   }
 
   .gallery-item {
-    width: 100%;
-    max-width: 350px;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
+    width: clamp(200px, 70vw, 320px);
   }
 
   .whatsapp {
