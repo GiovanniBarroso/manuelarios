@@ -103,6 +103,9 @@ nav ul li a:hover::after {
   flex-direction: column;
   cursor: pointer;
   gap: 4px;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 .menu-toggle span {
@@ -110,6 +113,10 @@ nav ul li a:hover::after {
   height: 3px;
   background: var(--dark);
   transition: all 0.3s ease;
+}
+
+.menu-toggle:focus {
+  outline: none;
 }
 
 @media (width <= 768px) {
@@ -269,10 +276,10 @@ h2::after {
 }
 
 .gallery-parallax .gallery-item:first-child {
-  margin-left: 120px;
+  margin-left: 20px;
 }
 .gallery-parallax .gallery-item:last-child {
-  margin-right: 120px;
+  margin-right: 20px;
 }
 
 .gallery-item::before {
@@ -338,7 +345,7 @@ h2::after {
 /* --- SERVICIOS --- */
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* siempre 2 columnas en escritorio */
   gap: 30px;
 }
 
@@ -541,6 +548,12 @@ h2::after {
 
 .map-container:hover {
   transform: scale(1.02);
+}
+
+.mapsbtn {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 @media (width <= 768px) {
