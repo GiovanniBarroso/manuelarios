@@ -250,8 +250,6 @@ h2::after {
   width: clamp(210px, 68vw, 380px);
   aspect-ratio: 1 / 1;
   border-radius: 15px;
-  background-size: cover;
-  background-position: center;
   scroll-snap-align: center;
   box-shadow: 0 15px 40px var(--shadow);
   position: relative;
@@ -260,6 +258,14 @@ h2::after {
     transform 0.3s ease,
     opacity 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
 }
 
 .gallery-parallax .gallery-item:first-child {
