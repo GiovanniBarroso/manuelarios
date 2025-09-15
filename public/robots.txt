@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap principal
-Sitemap: https://manuelarios.makeup/sitemap.xml
+Sitemap: https://manuelariosmakeup.com/sitemap.xml

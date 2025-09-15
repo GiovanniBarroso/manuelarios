@@ -4,51 +4,51 @@
 
   <!-- Página principal -->
   <url>
-    <loc>https://manuelarios.makeup/</loc>
+    <loc>https://manuelariosmakeup.com/</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>1.0</priority>
 
     <!-- Galería de imágenes -->
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/manuela3.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela3.jpg</image:loc>
       <image:caption>Micropigmentación - Hero principal</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/cejas1.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/cejas1.jpg</image:loc>
       <image:caption>Micropigmentación de cejas</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/cejas2.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/cejas2.jpg</image:loc>
       <image:caption>Micropigmentación de cejas - detalle</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/cejas4.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/cejas4.jpg</image:loc>
       <image:caption>Micropigmentación de cejas - resultados naturales</image:caption>
     </image:image>
 
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/labios1.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/labios1.jpg</image:loc>
       <image:caption>Micropigmentación de labios</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/labios2.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/labios2.jpg</image:loc>
       <image:caption>Micropigmentación de labios - técnica Lip Blush</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/labios3.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/labios3.jpg</image:loc>
       <image:caption>Micropigmentación de labios - acabado natural</image:caption>
     </image:image>
 
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/ojos1.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/ojos1.jpg</image:loc>
       <image:caption>Micropigmentación de ojos</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/ojos2.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/ojos2.jpg</image:loc>
       <image:caption>Delineado permanente de ojos</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://manuelarios.makeup/img/gallery/ojos3.jpg</image:loc>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/ojos3.jpg</image:loc>
       <image:caption>Micropigmentación de ojos - infralash</image:caption>
     </image:image>
     <image:image>
