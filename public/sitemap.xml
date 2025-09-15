@@ -8,53 +8,110 @@
     <lastmod>2025-09-15</lastmod>
     <priority>1.0</priority>
 
-    <!-- Galería de imágenes -->
-    <image:image>
-      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela3.jpg</image:loc>
-      <image:caption>Micropigmentación - Hero principal</image:caption>
-    </image:image>
+    <!-- Micropigmentación de cejas -->
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/cejas1.jpg</image:loc>
-      <image:caption>Micropigmentación de cejas</image:caption>
+      <image:caption>Micropigmentación de cejas – resultado natural</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/cejas2.jpg</image:loc>
-      <image:caption>Micropigmentación de cejas - detalle</image:caption>
+      <image:caption>Micropigmentación de cejas – diseño personalizado</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/cejas3.jpg</image:loc>
+      <image:caption>Micropigmentación de cejas – antes y después</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/cejas4.jpg</image:loc>
-      <image:caption>Micropigmentación de cejas - resultados naturales</image:caption>
+      <image:caption>Micropigmentación de cejas con técnica powder</image:caption>
     </image:image>
 
+    <!-- Micropigmentación de labios -->
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/labios1.jpg</image:loc>
-      <image:caption>Micropigmentación de labios</image:caption>
+      <image:caption>Micropigmentación de labios – lip blush</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/labios2.jpg</image:loc>
-      <image:caption>Micropigmentación de labios - técnica Lip Blush</image:caption>
+      <image:caption>Micropigmentación de labios – resultado natural</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/labios3.jpg</image:loc>
-      <image:caption>Micropigmentación de labios - acabado natural</image:caption>
+      <image:caption>Micropigmentación de labios con definición sutil</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/labios4.jpg</image:loc>
+      <image:caption>Micropigmentación de labios – rejuvenecimiento estético</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/labios5.jpg</image:loc>
+      <image:caption>Micropigmentación de labios – pigmento duradero</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/labios6.jpg</image:loc>
+      <image:caption>Micropigmentación de labios – volumen óptico</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/labios7.jpg</image:loc>
+      <image:caption>Micropigmentación de labios – acabado brillante</image:caption>
     </image:image>
 
+    <!-- Micropigmentación de ojos -->
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/ojos1.jpg</image:loc>
-      <image:caption>Micropigmentación de ojos</image:caption>
+      <image:caption>Micropigmentación de ojos – eyeliner superior</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/ojos2.jpg</image:loc>
-      <image:caption>Delineado permanente de ojos</image:caption>
+      <image:caption>Micropigmentación de ojos – delineado infralash</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/ojos3.jpg</image:loc>
-      <image:caption>Micropigmentación de ojos - infralash</image:caption>
+      <image:caption>Micropigmentación de ojos – mirada intensa</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://manuelariosmakeup.com/img/gallery/ojos4.jpg</image:loc>
-      <image:caption>Micropigmentación de ojos - eyeliner sutil</image:caption>
+      <image:caption>Micropigmentación de ojos – definición natural</image:caption>
+    </image:image>
+
+    <!-- Micropigmentación capilar -->
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/pelo1.jpg</image:loc>
+      <image:caption>Micropigmentación capilar – densidad en entradas</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/pelo2.jpg</image:loc>
+      <image:caption>Micropigmentación capilar – efecto rapado natural</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/pelo3.jpg</image:loc>
+      <image:caption>Micropigmentación capilar – cobertura en coronilla</image:caption>
+    </image:image>
+
+    <!-- Imágenes de marca / hero -->
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela.jpg</image:loc>
+      <image:caption>Manuela Rios – especialista en micropigmentación</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela1.jpg</image:loc>
+      <image:caption>Centro de micropigmentación en Dos Hermanas (Sevilla)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela2.jpg</image:loc>
+      <image:caption>Micropigmentación profesional – resultados reales</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela3.jpg</image:loc>
+      <image:caption>Hero principal – Manuela Rios Micropigmentación</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela4.jpg</image:loc>
+      <image:caption>Micropigmentación de alta precisión en Sevilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://manuelariosmakeup.com/img/gallery/manuela5.jpg</image:loc>
+      <image:caption>Experiencia en micropigmentación – casos reales</image:caption>
     </image:image>
   </url>
-
 </urlset>
