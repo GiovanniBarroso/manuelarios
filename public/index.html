@@ -26,9 +26,14 @@
     <meta name="theme-color" content="#d4af37" />
 
     <!-- Performance: precarga imagen LCP (hero) -->
-    <link rel="preload" as="image" href="/img/gallery/manuela3.jpg" />
+    <link
+      rel="preload"
+      as="image"
+      href="/img/gallery/manuela3.jpg"
+      fetchpriority="high"
+    />
 
-    <!-- Geolocalización (opcionales) -->
+    <!-- Geolocalización -->
     <meta name="geo.region" content="ES-AN" />
     <meta name="geo.placename" content="Dos Hermanas, Sevilla" />
     <meta name="geo.position" content="37.284536;-5.914866" />
@@ -72,27 +77,25 @@
       content="Resultados de micropigmentación en cejas, labios y ojos"
     />
 
-    <!-- Favicons e Iconos -->
+    <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#ffffff" />
 
-    <!-- Extra para navegadores -->
+    <!-- Extra navegadores -->
     <meta name="application-name" content="Manuela Rios" />
     <meta name="apple-mobile-web-app-title" content="Manuela Rios" />
     <meta name="msapplication-TileColor" content="#d4af37" />
 
-    <!-- Datos Estructurados JSON-LD -->
+    <!-- Datos estructurados -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "BeautySalon",
         "name": "Manuela Rios Micropigmentación",
         "description": "Especialista en micropigmentación en Dos Hermanas, Sevilla. Servicios de cejas, labios, ojos y micropigmentación capilar (SMP).",
-        "image": "https://manuelariosmakeup.com/img/logo.jpg",
         "url": "https://manuelariosmakeup.com",
         "telephone": "+34693651976",
         "address": {
@@ -187,28 +190,46 @@
       }
     </script>
 
-    <!-- Google Fonts optimizado -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tipografías locales -->
+    <link rel="stylesheet" href="css/fonts.css" />
+
+    <!-- Preload de tu CSS principal -->
+    <link rel="preload" href="css/styles.css" as="style" />
+
+    <!-- AOS Animation Library (no-bloqueante) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      as="style"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    </noscript>
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <!-- Font Awesome -->
+    <!-- Font Awesome (para iconos) -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
     />
-
-    <!-- Reducción de latencia a CDNs -->
-    <link rel="preconnect" href="https://unpkg.com" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="//unpkg.com" />
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+    </noscript>
 
     <!-- CSS Principal -->
     <link rel="stylesheet" href="css/styles.css" />
