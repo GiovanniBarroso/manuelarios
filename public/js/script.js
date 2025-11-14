@@ -50,14 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (servicesSection)
     servicesSection.addEventListener("click", handleServiceClick);
 
-  // --- Lazy loading con IntersectionObserver: data-src / data-bg opcionales ---
+  // --- Lazy loading con IntersectionObserver ---
   const lazyObserver = new IntersectionObserver((entries, observer) => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       const el = entry.target;
 
       if (el.tagName.toLowerCase() === "img") {
-        // Carga diferida real si existe data-src
         if (el.dataset.src) el.src = el.dataset.src;
         el.style.opacity = "1";
       } else if (el.dataset.bg) {
@@ -107,9 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const itemCenterX = rect.left + rect.width / 2;
         const d = Math.min(Math.abs(centerX - itemCenterX), half);
 
-        const scale = 1 - (d / half) * 0.15; // >= 0.85
+        const scale = 1 - (d / half) * 0.15;
         const rotateY = (d / half) * 15 * (itemCenterX < centerX ? 1 : -1);
-        const opacity = 1 - (d / half) * 0.4; // >= 0.6
+        const opacity = 1 - (d / half) * 0.4;
 
         item.style.transform = `scale(${scale}) rotateY(${rotateY}deg)`;
         item.style.opacity = opacity;
@@ -188,7 +187,6 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Cerrar con Escape
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeMenu();
 });
@@ -225,6 +223,5 @@ let resizeTimeout;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
-    // sitio para futuros recalculos si los necesitas
   }, 250);
 });

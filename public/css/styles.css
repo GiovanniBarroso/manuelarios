@@ -345,7 +345,7 @@ h2::after {
 /* --- SERVICIOS --- */
 .services {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* siempre 2 columnas en escritorio */
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
