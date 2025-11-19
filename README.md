@@ -7,7 +7,7 @@ Todo el código está en la carpeta `public/` y la estructura sigue buenas prác
 Gracias por tu visita !
 
 ---
-
+```
 ## 📁 Estructura del proyecto
 
 manuelarios/
@@ -24,7 +24,7 @@ manuelarios/
 ├── package.json            # Scripts de calidad y herramientas
 ├── pnpm-lock.yaml
 └── README.md
-
+```
 ---
 
 ## 🧰 Scripts disponibles
