@@ -222,6 +222,5 @@ function handleServiceClick(event) {
 let resizeTimeout;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-  }, 250);
+  resizeTimeout = setTimeout(() => {}, 250);
 });
