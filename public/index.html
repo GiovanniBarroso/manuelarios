@@ -13,7 +13,9 @@
     />
 
     <!-- SEO Básico -->
-    <title>Manuela Rios Micropigmentación</title>
+    <title>
+      Manuela Rios Micropigmentación en Dos Hermanas | Cejas, Labios, Ojos y SMP
+    </title>
     <meta
       name="description"
       content="Especialista en micropigmentación en Dos Hermanas (Sevilla). Cejas (microblading y powder), labios (lip blush), ojos (infralash/eyeliner) y micropigmentación capilar (SMP). Resultados naturales y seguros. ¡Pide tu cita!"
@@ -212,7 +214,7 @@
       <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     </noscript>
 
-    <!-- Font Awesome (para iconos) -->
+    <!-- Font Awesome -->
     <link
       rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -240,22 +242,20 @@
     <nav id="navbar">
       <a href="#parallax" class="logo">MR Micropigmentación</a>
 
-      <!-- Botón de menú accesible -->
       <button
         class="menu-toggle"
         type="button"
         aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="nav-menu"
-        onclick="toggleMenu(this)"
       >
         <span></span><span></span><span></span>
       </button>
 
       <ul id="nav-menu">
-        <li><a href="#about" onclick="closeMenu()">Sobre Nosotros</a></li>
-        <li><a href="#services" onclick="closeMenu()">Servicios</a></li>
-        <li><a href="#location" onclick="closeMenu()">Ubicación</a></li>
+        <li><a href="#about">Sobre Nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#location">Ubicación</a></li>
       </ul>
     </nav>
 
@@ -267,7 +267,6 @@
     >
       <div class="hero-text fade-in" data-aos="zoom-in">
         <h1>Manuela Rios Micropigmentación</h1>
-        <br /><br /><br />
         <p>
           Realza tu belleza natural con técnicas profesionales: cejas, labios,
           ojos y micropigmentación capilar (SMP)
@@ -392,8 +391,8 @@
           </p>
 
           <ul class="process-steps">
-            <li>Efectos Rapados</li>
-            <li>Efecto Densidad</li>
+            <li>Efecto rapado</li>
+            <li>Efecto densidad</li>
             <li>Cicatrices</li>
           </ul>
 
@@ -410,8 +409,9 @@
     <!-- SERVICIOS EXPANDIBLES -->
     <section id="services">
       <h2 data-aos="fade-up">Nuestros Servicios Especializados</h2>
+
       <div class="services">
-        <!-- Servicio 1: Cejas -->
+        <!-- Servicio 1 -->
         <div class="service" data-aos="fade-up" data-aos-delay="100">
           <div class="service-header">
             <div class="service-icon"><i class="fas fa-spa"></i></div>
@@ -422,13 +422,23 @@
             </p>
             <button
               class="expand-btn"
+              id="service-toggle-1"
               type="button"
-              aria-label="Expandir información"
+              aria-label="Expandir información sobre micropigmentación de cejas"
+              aria-expanded="false"
+              aria-controls="service-panel-1"
             >
-              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="service-details">
+
+          <div
+            class="service-details"
+            id="service-panel-1"
+            role="region"
+            aria-labelledby="service-toggle-1"
+            aria-hidden="true"
+          >
             <div class="service-details-content">
               <div class="service-process">
                 <h4>Proceso del tratamiento</h4>
@@ -445,7 +455,7 @@
           </div>
         </div>
 
-        <!-- Servicio 2: Labios -->
+        <!-- Servicio 2 -->
         <div class="service" data-aos="fade-up" data-aos-delay="200">
           <div class="service-header">
             <div class="service-icon">
@@ -458,13 +468,23 @@
             </p>
             <button
               class="expand-btn"
+              id="service-toggle-2"
               type="button"
-              aria-label="Expandir información"
+              aria-label="Expandir información sobre micropigmentación de labios"
+              aria-expanded="false"
+              aria-controls="service-panel-2"
             >
-              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="service-details">
+
+          <div
+            class="service-details"
+            id="service-panel-2"
+            role="region"
+            aria-labelledby="service-toggle-2"
+            aria-hidden="true"
+          >
             <div class="service-details-content">
               <div class="service-process">
                 <h4>Proceso del tratamiento</h4>
@@ -478,7 +498,7 @@
           </div>
         </div>
 
-        <!-- Servicio 3: Ojos -->
+        <!-- Servicio 3 -->
         <div class="service" data-aos="fade-up" data-aos-delay="300">
           <div class="service-header">
             <div class="service-icon"><i class="fas fa-eye"></i></div>
@@ -489,13 +509,23 @@
             </p>
             <button
               class="expand-btn"
+              id="service-toggle-3"
               type="button"
-              aria-label="Expandir información"
+              aria-label="Expandir información sobre micropigmentación de ojos"
+              aria-expanded="false"
+              aria-controls="service-panel-3"
             >
-              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="service-details">
+
+          <div
+            class="service-details"
+            id="service-panel-3"
+            role="region"
+            aria-labelledby="service-toggle-3"
+            aria-hidden="true"
+          >
             <div class="service-details-content">
               <div class="service-process">
                 <h4>Proceso del tratamiento</h4>
@@ -503,7 +533,7 @@
                   <li>Estudio del párpado y de la línea de pestañas</li>
                   <li>Diseño y prueba del delineado</li>
                   <li>
-                    Aplicación precisa del infralash/eyeline (degradado o
+                    Aplicación precisa del infralash/eyeliner (degradado o
                     clásico)
                   </li>
                   <li>Cuidados post y seguimiento</li>
@@ -513,24 +543,34 @@
           </div>
         </div>
 
-        <!-- Servicio 4: Micropigmentación Capilar (SMP) -->
+        <!-- Servicio 4 -->
         <div class="service" data-aos="fade-up" data-aos-delay="400">
           <div class="service-header">
             <div class="service-icon"><i class="fas fa-user"></i></div>
             <h3>Micropigmentación Capilar (SMP)</h3>
             <p class="service-preview">
-              3 opciones distintas <br />Efecto rapado, efecto densidad y
-              camuflaje de cicatrices
+              3 opciones distintas<br />
+              Efecto rapado, efecto densidad y camuflaje de cicatrices
             </p>
             <button
               class="expand-btn"
+              id="service-toggle-4"
               type="button"
-              aria-label="Expandir información"
+              aria-label="Expandir información sobre micropigmentación capilar"
+              aria-expanded="false"
+              aria-controls="service-panel-4"
             >
-              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="service-details">
+
+          <div
+            class="service-details"
+            id="service-panel-4"
+            role="region"
+            aria-labelledby="service-toggle-4"
+            aria-hidden="true"
+          >
             <div class="service-details-content">
               <div class="service-process">
                 <h4>¿En qué casos está indicado?</h4>
@@ -552,31 +592,38 @@
     <!-- UBICACIÓN -->
     <section id="location">
       <h2 data-aos="fade-up">¿Dónde Encontrarnos?</h2>
+
       <div class="location-info">
         <div class="location-details" data-aos="fade-right">
           <h3>Información de Contacto</h3>
+
           <div class="detail">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
             <span>
-              C. Oscar Arias, local 3, bloque 3<br />41701 Dos Hermanas, Sevilla
+              C. Oscar Arias, local 3, bloque 3<br />
+              41701 Dos Hermanas, Sevilla
             </span>
           </div>
+
           <div class="detail">
-            <i class="fas fa-phone"></i>
+            <i class="fas fa-phone" aria-hidden="true"></i>
             <a
               href="tel:+34693651976"
               style="color: inherit; text-decoration: none"
-              >+34 693 65 19 76</a
             >
+              +34 693 65 19 76
+            </a>
           </div>
+
           <div class="detail">
-            <i class="fas fa-clock"></i>
-            <span
-              ><strong>Horario:</strong> Lunes - Viernes<br />9:30h - 13:30h |
-              17:30h - 19:30h</span
-            >
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span>
+              <strong>Horario:</strong> Lunes - Viernes<br />
+              9:30h - 13:30h | 17:30h - 19:30h
+            </span>
           </div>
         </div>
+
         <div class="map-container" data-aos="fade-left">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6348.894174143201!2d-5.914865875904757!3d37.28453644712741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1271b0627efecb%3A0xaebb68053464b5c!2sManuela%20R%C3%ADos%20Centro%20de%20Micropigmentaci%C3%B3n!5e0!3m2!1ses!2ses!4v1755951326510!5m2!1ses!2ses"
@@ -585,10 +632,10 @@
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
             title="Ubicación Manuela Rios Micropigmentación"
           ></iframe>
 
-          <!-- CTA Cómo llegar -->
           <p class="mapsbtn">
             <a
               href="https://maps.google.com/?q=Manuela+Rios+Micropigmentacion,+Dos+Hermanas"
@@ -613,17 +660,19 @@
             rel="noopener noreferrer"
             aria-label="Síguenos en Instagram"
           >
-            <i class="fab fa-instagram"></i>
+            <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
+
           <a
             href="https://wa.me/34693651976?text=Hola%21%20Me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20servicios%20y%20precios"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contacta por WhatsApp"
           >
-            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
           </a>
         </div>
+
         <div class="footer-text">
           <p>
             &copy; 2025 Manuela Rios Micropigmentación. Todos los derechos
@@ -644,7 +693,7 @@
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
     >
-      <i class="fab fa-whatsapp"></i>
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <!-- SCRIPTS -->

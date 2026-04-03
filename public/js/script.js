@@ -10,7 +10,7 @@ function debounce(func, wait) {
 // ---------- AOS (inicialización no bloqueante) ----------
 const initAOS = () => {
   if (window.AOS) {
-    AOS.init({
+    window.AOS.init({
       duration: 1000,
       once: true,
       offset: 100,
@@ -18,83 +18,214 @@ const initAOS = () => {
   }
 };
 
-// Intenta en idle; fallback al load
 if ("requestIdleCallback" in window) {
   requestIdleCallback(initAOS, { timeout: 2000 });
 } else {
   window.addEventListener("load", initAOS, { once: true });
 }
 
-// ---------- DOM Ready ----------
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Smooth scroll para anchors (respeta navbar) ---
   const nav = document.querySelector("nav");
+  const navbar = document.getElementById("navbar");
+  const menu = document.getElementById("nav-menu");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const servicesSection = document.getElementById("services");
+  const gallery = document.querySelector(".gallery-parallax");
+
+  // ---------- Navbar scroll effect ----------
+  const updateNavbarState = () => {
+    if (!navbar) return;
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  };
+
+  updateNavbarState();
+
+  window.addEventListener("scroll", debounce(updateNavbarState, 10), {
+    passive: true,
+  });
+
+  // ---------- Mobile menu ----------
+  const setMenuState = (isOpen) => {
+    if (!menu || !menuToggle) return;
+
+    menu.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Cerrar menú" : "Abrir menú",
+    );
+  };
+
+  const closeMenu = () => setMenuState(false);
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menu?.classList.contains("active");
+      setMenuState(!isOpen);
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    if (!menu || !menuToggle) return;
+
+    const clickInsideMenu = menu.contains(event.target);
+    const clickOnToggle = menuToggle.contains(event.target);
+
+    if (
+      menu.classList.contains("active") &&
+      !clickInsideMenu &&
+      !clickOnToggle
+    ) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  // ---------- Smooth scroll para anchors (respeta navbar) ----------
   const getOffset = () => -(nav ? nav.getBoundingClientRect().height + 10 : 80);
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const href = anchor.getAttribute("href");
     if (!href || href === "#") return;
 
-    anchor.addEventListener("click", (e) => {
+    anchor.addEventListener("click", (event) => {
       const target = document.querySelector(href);
       if (!target) return;
-      e.preventDefault();
+
+      event.preventDefault();
+
       const y =
         target.getBoundingClientRect().top + window.scrollY + getOffset();
+
       window.scrollTo({ top: y, behavior: "smooth" });
+      closeMenu();
     });
   });
 
-  // --- Delegación de eventos para servicios ---
-  const servicesSection = document.getElementById("services");
-  if (servicesSection)
-    servicesSection.addEventListener("click", handleServiceClick);
-
-  // --- Lazy loading con IntersectionObserver ---
-  const lazyObserver = new IntersectionObserver((entries, observer) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      const el = entry.target;
-
-      if (el.tagName.toLowerCase() === "img") {
-        if (el.dataset.src) el.src = el.dataset.src;
-        el.style.opacity = "1";
-      } else if (el.dataset.bg) {
-        el.style.backgroundImage = `url('${el.dataset.bg}')`;
-        el.style.opacity = "1";
-      }
-      observer.unobserve(el);
-    }
-  });
-
-  document
-    .querySelectorAll(
-      "img[data-src], .about-image[data-bg], .gallery-item[data-bg]",
-    )
-    .forEach((el) => lazyObserver.observe(el));
-
-  // --- Manejo de errores para imágenes (sin bucle infinito) ---
+  // ---------- Manejo de errores para imágenes ----------
   document.querySelectorAll("img").forEach((img) => {
     img.addEventListener("error", () => {
-      img.onerror = null; // evita loop si placeholder falla
-      img.src = "img/placeholder.jpg";
+      img.onerror = null;
+      img.classList.add("is-broken");
+      img.setAttribute("aria-hidden", "true");
     });
   });
 
-  // --- Reset servicios (por si llegan abiertos) ---
-  setTimeout(() => {
-    document
-      .querySelectorAll(".service.expanded")
-      .forEach((s) => s.classList.remove("expanded"));
-  }, 100);
+  // ---------- Servicios expandibles ----------
+  const closeService = (service) => {
+    if (!service) return;
 
-  // --- Parallax galería (suave y eficiente) ---
-  const gallery = document.querySelector(".gallery-parallax");
+    const panel = service.querySelector(".service-details");
+    const button = service.querySelector(".expand-btn");
+    const title =
+      service.querySelector("h3")?.textContent?.trim() || "servicio";
+
+    service.classList.remove("expanded");
+
+    if (panel) {
+      panel.style.maxHeight = "0px";
+      panel.setAttribute("aria-hidden", "true");
+    }
+
+    if (button) {
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute(
+        "aria-label",
+        `Expandir información sobre ${title.toLowerCase()}`,
+      );
+    }
+  };
+
+  const openService = (service) => {
+    if (!service) return;
+
+    const panel = service.querySelector(".service-details");
+    const button = service.querySelector(".expand-btn");
+    const title =
+      service.querySelector("h3")?.textContent?.trim() || "servicio";
+
+    service.classList.add("expanded");
+
+    if (panel) {
+      panel.setAttribute("aria-hidden", "false");
+      panel.style.maxHeight = `${panel.scrollHeight}px`;
+    }
+
+    if (button) {
+      button.setAttribute("aria-expanded", "true");
+      button.setAttribute(
+        "aria-label",
+        `Contraer información sobre ${title.toLowerCase()}`,
+      );
+    }
+  };
+
+  const closeAllServices = (except = null) => {
+    document.querySelectorAll(".service.expanded").forEach((service) => {
+      if (service !== except) closeService(service);
+    });
+  };
+
+  const handleServiceToggle = (serviceCard) => {
+    if (!serviceCard) return;
+
+    const isExpanded = serviceCard.classList.contains("expanded");
+
+    closeAllServices(serviceCard);
+
+    if (isExpanded) {
+      closeService(serviceCard);
+      return;
+    }
+
+    openService(serviceCard);
+
+    if (window.innerWidth > 768) {
+      requestAnimationFrame(() => {
+        const yOffset = -100;
+        const y =
+          serviceCard.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      });
+    }
+  };
+
+  if (servicesSection) {
+    servicesSection.addEventListener("click", (event) => {
+      const serviceCard = event.target.closest(".service");
+      if (!serviceCard) return;
+
+      if (event.target.closest(".service-details")) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      handleServiceToggle(serviceCard);
+    });
+  }
+
+  // Recalcular altura si cambia el viewport con una card abierta
+  const syncExpandedPanels = () => {
+    document.querySelectorAll(".service.expanded").forEach((service) => {
+      const panel = service.querySelector(".service-details");
+      if (!panel) return;
+      panel.style.maxHeight = `${panel.scrollHeight}px`;
+    });
+  };
+
+  // ---------- Galería parallax ----------
   if (gallery) {
     const items = gallery.querySelectorAll(".gallery-item");
 
-    // pistas para el compositor
-    items.forEach((it) => (it.style.willChange = "transform, opacity"));
+    items.forEach((item) => {
+      item.style.willChange = "transform, opacity";
+    });
 
     const updateGalleryParallax = () => {
       const galleryRect = gallery.getBoundingClientRect();
@@ -104,11 +235,12 @@ document.addEventListener("DOMContentLoaded", () => {
       items.forEach((item) => {
         const rect = item.getBoundingClientRect();
         const itemCenterX = rect.left + rect.width / 2;
-        const d = Math.min(Math.abs(centerX - itemCenterX), half);
+        const distance = Math.min(Math.abs(centerX - itemCenterX), half || 1);
 
-        const scale = 1 - (d / half) * 0.15;
-        const rotateY = (d / half) * 15 * (itemCenterX < centerX ? 1 : -1);
-        const opacity = 1 - (d / half) * 0.4;
+        const scale = 1 - (distance / (half || 1)) * 0.15;
+        const rotateY =
+          (distance / (half || 1)) * 15 * (itemCenterX < centerX ? 1 : -1);
+        const opacity = 1 - (distance / (half || 1)) * 0.4;
 
         item.style.transform = `scale(${scale}) rotateY(${rotateY}deg)`;
         item.style.opacity = opacity;
@@ -116,19 +248,19 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateGalleryParallax();
-          ticking = false;
-        });
-        ticking = true;
-      }
+
+    const onGalleryScroll = () => {
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        updateGalleryParallax();
+        ticking = false;
+      });
     };
 
-    gallery.addEventListener("scroll", onScroll, { passive: true });
+    gallery.addEventListener("scroll", onGalleryScroll, { passive: true });
 
-    // Centrar primer item al cargar
     if (items.length > 0) {
       const first = items[0];
       gallery.scrollLeft =
@@ -136,91 +268,14 @@ document.addEventListener("DOMContentLoaded", () => {
       updateGalleryParallax();
     }
 
-    // Recalcular al redimensionar
-    window.addEventListener("resize", debounce(updateGalleryParallax, 150));
+    window.addEventListener(
+      "resize",
+      debounce(() => {
+        updateGalleryParallax();
+        syncExpandedPanels();
+      }, 150),
+    );
+  } else {
+    window.addEventListener("resize", debounce(syncExpandedPanels, 150));
   }
-});
-
-// ---------- Navbar scroll effect con debounce (listener pasivo) ----------
-const navbar = document.getElementById("navbar");
-window.addEventListener(
-  "scroll",
-  debounce(() => {
-    if (!navbar) return;
-    if (window.scrollY > 50) navbar.classList.add("scrolled");
-    else navbar.classList.remove("scrolled");
-  }, 10),
-  { passive: true },
-);
-
-// ---------- Mobile menu toggle + accesibilidad ----------
-function toggleMenu(btn) {
-  const menu = document.getElementById("nav-menu");
-  if (!menu) return;
-  menu.classList.toggle("active");
-  const expanded = menu.classList.contains("active");
-  // actualiza aria en el botón si lo pasamos desde el HTML
-  if (btn && btn.setAttribute)
-    btn.setAttribute("aria-expanded", String(expanded));
-}
-
-function closeMenu() {
-  const menu = document.getElementById("nav-menu");
-  const toggle = document.querySelector(".menu-toggle");
-  if (!menu) return;
-  menu.classList.remove("active");
-  if (toggle) toggle.setAttribute("aria-expanded", "false");
-}
-
-// Cerrar menú móvil al hacer clic fuera
-document.addEventListener("click", (event) => {
-  const nav = document.getElementById("nav-menu");
-  const toggle = document.querySelector(".menu-toggle");
-  if (!nav || !toggle) return;
-
-  if (
-    nav.classList.contains("active") &&
-    !nav.contains(event.target) &&
-    !toggle.contains(event.target)
-  ) {
-    closeMenu();
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeMenu();
-});
-
-// ---------- Manejo click en servicios ----------
-function handleServiceClick(event) {
-  const serviceCard = event.target.closest(".service");
-  if (!serviceCard || event.target.closest(".service-details")) return;
-
-  event.preventDefault();
-  event.stopPropagation();
-
-  const isExpanded = serviceCard.classList.contains("expanded");
-
-  document
-    .querySelectorAll(".service.expanded")
-    .forEach((s) => s.classList.remove("expanded"));
-
-  if (!isExpanded) {
-    serviceCard.classList.add("expanded");
-    if (window.innerWidth > 768) {
-      setTimeout(() => {
-        const yOffset = -100;
-        const y =
-          serviceCard.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }, 300);
-    }
-  }
-}
-
-// ---------- Recalcular al hacer resize (placeholder para futuros cálculos) ----------
-let resizeTimeout;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {}, 250);
 });

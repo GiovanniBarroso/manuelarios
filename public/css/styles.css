@@ -345,8 +345,9 @@ h2::after {
 /* --- SERVICIOS --- */
 .services {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
+  align-items: start;
 }
 
 .service {
@@ -354,10 +355,14 @@ h2::after {
   border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 15px 40px var(--shadow);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: 1px solid #f0f0f0;
   cursor: pointer;
   position: relative;
+  align-self: start;
+  height: auto;
 }
 
 .service::before {
